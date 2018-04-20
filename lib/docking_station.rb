@@ -11,7 +11,7 @@ class DockingStation
   end
 
   def release_bike
-    fail 'no bikes available' if empty?
+    fail 'no bikes available' if empty? || all_broken?
     @bikes.pop
   end
 
@@ -30,4 +30,7 @@ class DockingStation
     @bikes.length == DEFAULT_CAPACITY
   end
 
+  def all_broken?
+    @bikes.select { |bike| bike.working? }.empty?
+  end
 end
