@@ -12,7 +12,9 @@ class DockingStation
 
   def release_bike
     fail 'no bikes available' if empty? || all_broken?
-    @bikes.pop
+    working_bike = find_working_bike
+    delete(working_bike)
+    working_bike
   end
 
   def dock(bike)
@@ -21,6 +23,14 @@ class DockingStation
   end
 
   private
+
+  def find_working_bike
+    @bikes.select { |bike| bike.working? }.first
+  end
+
+  def delete(bike)
+    @bikes.delete(bike)
+  end
 
   def empty?
     @bikes.length == 0
