@@ -8,3 +8,10 @@ def dont_release_broken_bikes
   station.dock(bike)
   station.release_bike
 end
+
+def dock_broken_bikes
+  bike = Bike.new
+  station = DockingStation.new
+  bike.report_broken
+  station.dock(bike)
+end

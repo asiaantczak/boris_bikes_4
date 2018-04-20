@@ -13,6 +13,13 @@ describe DockingStation do
       expect(subject.dock(bike)).to eq [bike]
     end
 
+    it 'docks broken bike' do
+      new_bike = bike
+      new_bike.report_broken
+      subject.dock(new_bike)
+      expect(subject.bikes).to eq [new_bike]
+    end
+
     it 'returns docked bikes' do
       subject.dock(bike)
       expect(subject.bikes).to eq [bike]
