@@ -1,5 +1,3 @@
-require_relative './bike'
-
 class DockingStation
 
   DEFAULT_CAPACITY = 20

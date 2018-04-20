@@ -1,8 +1,6 @@
 require 'docking_station'
 
 describe DockingStation do
-  let(:bike) {Bike.new}
-
   describe '#dock' do
     it 'raises error if docking station is full' do
       DockingStation::DEFAULT_CAPACITY.times { subject.dock(bike) }
